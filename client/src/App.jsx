@@ -1,17 +1,20 @@
-import { useState } from "react"
-import MealList from "./components/MealList"
-import SignUp from "./components/SignUp"
+import { Provider } from "react-redux"
 import { Route, Routes } from "react-router-dom"
-import Login from "./components/Login"
+import { store } from "../src/redux/store/store"
+import Home from "./pages/Home"
+import LoginPage from "./pages/LoginPage"
+import SignUpPage from "./pages/SignUpPage"
 
 function App() {
-  const [filterData, setFilterData] = useState(null)
+  
   return(
+    <Provider store={store}>
     <Routes>
-      <Route path="/signup" element={<SignUp/>}/>
-      <Route path="/" element={<Login />}/>
-      <Route path="/meals" element={<MealList filterData={filterData} setFilterData={setFilterData}/>}/>
+      <Route path="/signup" element={<SignUpPage/>}/>
+      <Route path="/" element={<LoginPage/>}/>
+      <Route path="/meals" element={<Home/>}/>
     </Routes>
+    </Provider>
   )
 }
 
