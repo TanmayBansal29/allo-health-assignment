@@ -3,7 +3,7 @@ import Login from '../components/Login'
 
 const LoginPage = () => {
   return (
-    <div className='w-[100vw] h-screen flex items-center justify-center bg-[#BDBDBD]'>
+    <div className='w-[100vw] h-[100vh] flex items-center justify-center bg-[#BDBDBD]'>
         <Login/>
     </div>
   )

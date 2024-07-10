@@ -11,7 +11,7 @@ const MealList = ({filterData, setFilterData}) => {
     }
     const filteredMeals = filterData ? meals.filter(meal => meal.labels.includes(filterData.toLowerCase())) : meals;
   return (
-    <div className='flex flex-col ml-4'>
+    <div className='flex flex-col ml-2'>
     <FilterList onFilterChange={handleFilterData}/>
     <div>
         {

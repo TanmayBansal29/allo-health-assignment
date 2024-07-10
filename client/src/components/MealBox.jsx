@@ -32,16 +32,17 @@ const MealBox = ({meal}) => {
         <div className="w-[800px] max-h-[350px] bg-white rounded-lg shadow-md mt-2 p-6 flex gap-4">
   <div className="relative w-[200px] flex-shrink-0">
     <img 
-      src="https://images.theconversation.com/files/410720/original/file-20210712-46002-1ku5one.jpg?ixlib=rb-4.1.0&rect=0%2C0%2C1000%2C696&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip" 
+      src="https://media.istockphoto.com/id/1457669461/photo/burger-combo.jpg?s=612x612&w=0&k=20&c=8Zif07xLHX5F-ROfGWtYy1q92e29OK3fULwQ2sUCwKY=" 
       alt="Meal Image" 
-      className="absolute top-0 left-0 w-full h-full rounded-md"
+      className="absolute top-0 left-0 w-full h-full object-cover rounded-l-md"
+      style={{ borderTopRightRadius: '0', borderBottomRightRadius: '0' }}
     />
   </div>
   <div className="flex-1">
     <div className="font-bold text-xl mb-2">{meal.title} + Drink</div>
     <div className="mb-4 space-y-1 text-sm">
       <div><span className="font-semibold text-gray-600">Starter:</span> {meal.starter}</div>
-      <div><span className="font-semibold text-gray-600">Dessert:</span> {meal.desert}</div>
+      <div><span className="font-semibold text-gray-600">Dessert:</span> {meal.dessert}</div>
       <div><span className="font-semibold text-gray-600">Selected Drink:</span> {selectedDrink}</div>
     </div>
     <div className="flex justify-between items-center">
