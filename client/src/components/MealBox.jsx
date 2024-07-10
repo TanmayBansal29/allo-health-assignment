@@ -1,8 +1,7 @@
-import { Button } from '@mui/material';
 import { nanoid } from '@reduxjs/toolkit';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addSelectedMeal } from '../redux/slices/passemgerSlice';
+import { addSelectedMeal } from '../redux/slices/passengerSlice';
 
 const MealBox = ({meal}) => {
   const [selectedDrink, setSelectedDrink] = useState(meal.drinks[0].title)

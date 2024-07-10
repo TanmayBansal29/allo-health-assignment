@@ -8,7 +8,7 @@ const Home = () => {
   return (
 <div className='flex w-screen h-screen bg-gray-300 overflow-x-hidden'>
   <MealList filterData={filterData} setFilterData={setFilterData} className="flex-shrink-0 max-w-[300px] overflow-y-auto" />
-  <div className="flex flex-col flex-grow overflow-hidden">
+  <div className="flex flex-col flex-grow overflow-y-auto">
     <PassengerSelect className="mb-4" />
     <div className="flex flex-col flex-grow overflow-y-auto">
       <PassengerMealcard className="p-4" />

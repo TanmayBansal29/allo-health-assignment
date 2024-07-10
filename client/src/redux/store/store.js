@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import passengerReducer from "../slices/passemgerSlice";
+import loginAuthReducer from "../slices/loginAuth";
+import passengerReducer from "../slices/passengerSlice";
 
 export const store = configureStore({
     reducer: {
-        passenger: passengerReducer
+        passenger: passengerReducer,
+        loginAuth: loginAuthReducer
     }
 })

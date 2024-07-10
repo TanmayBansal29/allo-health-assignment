@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateSelectedPassenger } from '../redux/slices/passemgerSlice';
+import { updateSelectedPassenger } from '../redux/slices/passengerSlice';
 
 const PassengerSelect = () => {
 

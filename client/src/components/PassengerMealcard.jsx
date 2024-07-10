@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeSelectedMeal } from '../redux/slices/passemgerSlice';
+import { removeSelectedMeal } from '../redux/slices/passengerSlice';
 
 const PassengerMealcard = () => {
+  const [totalmealPrice, setTotalMealPrice] = useState(0);
     const selectedMeal = useSelector((store) => store.passenger.selectedMeal);
-
-    console.log("Meal",selectedMeal);
 
     let passenger1Data = selectedMeal?.filter((data,index) => data.selectedPassenger === 0);
     let passenger2Data = selectedMeal?.filter((data,index) => data.selectedPassenger === 1);
 
-    // const totalMealPrice = selectedMeal?.reduce((meal,acc) => {
-    //     console.log("price", meal)
-    //     acc = acc+ +meal.totalPrice;
-    //     return acc;
-    // },0)
+
+    const calculateTotalMealPrice = () => {
+      let mealPrice = 0;
+      selectedMeal?.forEach((meal) => {
+        console.log(meal);
+        mealPrice = mealPrice + +meal.totalPrice;
+      })
+      setTotalMealPrice(mealPrice);
+    }
+
+    useEffect(() => {
+      calculateTotalMealPrice();
+    }, [selectedMeal.length])
+
+    
 
     const dispatch = useDispatch();
 
@@ -26,14 +35,17 @@ const PassengerMealcard = () => {
                 
             }
         }
-        console.log(selectedMealIndex);
 
         dispatch(removeSelectedMeal(selectedMealIndex));
     }
 
-    console.log("updated", selectedMeal)
   return (
 <div className="flex flex-col gap-4 overflow-y-auto ml-[22px] mt-5">
+{
+  totalmealPrice ? <div className="bg-gray-100 p-4 w-[260px] rounded-md shadow-md">
+  Total Price: <span className="font-bold">{totalmealPrice === 0 ? " " : `$${totalmealPrice.toFixed(2)}`}</span>
+</div> : " "
+}
   {passenger1Data.length > 0 && (
     <div className="border border-gray-200 rounded-lg p-4 max-w-md">
       <h2 className="text-lg font-bold mb-2">Passenger 1</h2>
@@ -70,12 +82,6 @@ const PassengerMealcard = () => {
     </div>
   )}
 </div>
-
-
-
-
-
-
   )
 }
 

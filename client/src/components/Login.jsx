@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { updateAuth } from '../redux/slices/loginAuth';
 
 
 const Login = () => {
+
+    const dispatch = useDispatch();
 
     const url = "http://localhost:3001/api/v1/login"
     const navigate = useNavigate();
@@ -26,6 +30,7 @@ const Login = () => {
             if(data.success === true){
                 toast.success("Login Successfully")
                 navigate("/meals")
+                dispatch(updateAuth(true));
             } else {
                 if(data.success === false && data.message === "No User Exists"){
                     toast.error(data.message)
@@ -33,6 +38,7 @@ const Login = () => {
                 } else {
                     toast.error(data.message)
                 }
+                dispatch(updateAuth(false));
             }
         })
     }
