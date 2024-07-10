@@ -3,7 +3,7 @@ import useFetch from '../utils/useFetch'
 import { Button } from '@mui/material'
 
 const FilterList = ({onFilterChange}) => {
-  const url = "http://localhost:3001/api/v1/resData"
+  const url = "/api/v1/resData"
   const labels = useFetch(url).labels
   // console.log(labels)
 

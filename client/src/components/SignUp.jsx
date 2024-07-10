@@ -11,7 +11,7 @@ const [password, setPassword] = useState("");
 
 const navigate = useNavigate();
 
-const url = "http://localhost:3001/api/v1/signup";
+const url = "/api/v1/signup";
 
 const handleSubmit = (event) => {
     event.preventDefault();

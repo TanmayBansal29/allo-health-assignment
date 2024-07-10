@@ -4,7 +4,7 @@ import FilterList from './FilterList'
 import MealBox from './MealBox'
 
 const MealList = ({filterData, setFilterData}) => {
-    const url = "http://localhost:3001/api/v1/resData"
+    const url = "/api/v1/resData"
     const meals = useFetch(url).meals
     const handleFilterData = (labelName) => {
       setFilterData(labelName)

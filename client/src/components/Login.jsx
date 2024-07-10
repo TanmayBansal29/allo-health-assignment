@@ -9,7 +9,7 @@ const Login = () => {
 
     const dispatch = useDispatch();
 
-    const url = "http://localhost:3001/api/v1/login"
+    const url = "/api/v1/login"
     const navigate = useNavigate();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
