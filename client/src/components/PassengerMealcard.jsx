@@ -42,7 +42,7 @@ const PassengerMealcard = () => {
   return (
 <div className="flex flex-col gap-4 overflow-y-auto ml-[22px] mt-5">
 {
-  totalmealPrice ? <div className="bg-gray-100 p-4 w-[260px] rounded-md shadow-md">
+  totalmealPrice ? <div className="bg-gray-100 p-4 w-[450px] text-center rounded-md shadow-md">
   Total Price: <span className="font-bold">{totalmealPrice === 0 ? " " : `$${totalmealPrice.toFixed(2)}`}</span>
 </div> : " "
 }
