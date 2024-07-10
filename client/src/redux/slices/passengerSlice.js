@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {}
-
 export const passengerSlice = createSlice({
     name: 'passenger',
     initialState: {
