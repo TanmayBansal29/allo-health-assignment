@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { updateAuth } from '../redux/slices/loginAuth';
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
@@ -47,7 +46,7 @@ const Login = () => {
     }
 
 return (
-    <div className='w-full h-[50vh] max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
+    <div className='w-full h-[48vh] max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
         <form onSubmit={handleSubmit}>
             <h5 class="text-xl font-medium text-gray-900 dark:text-white mb-5">Login To Book Meals</h5>
             <div>
