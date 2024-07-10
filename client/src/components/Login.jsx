@@ -3,6 +3,8 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { updateAuth } from '../redux/slices/loginAuth';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
@@ -13,6 +15,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [showPassword, setShowPassword] = useState(false)
     const handleSubmit = (event) => {
         event.preventDefault();
         let user = {
@@ -51,9 +54,25 @@ return (
                 <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white' htmlFor="">Email: </label>
                 <input className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white' type="email" id='email' placeholder='Enter Your Email..' onChange={(e) => setEmail(e.target.value)}/>
             </div>
-            <div>
+            <div className='relative'>
                 <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white mt-2' htmlFor="password">Password: </label>
-                <input className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white' type="password" id='password' placeholder='Enter Your Password..' onChange={(e) => setPassword(e.target.value)}/>
+                <div>
+                <input
+                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white' 
+                type={showPassword ? "text" : "password"}
+                id='password'
+                placeholder='Enter Your Password..'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                type="button"
+                className="absolute right-3 top-10 flex text-white"
+                onClick={() => setShowPassword((prev) => !prev)}
+            >
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </button>
+                </div>
             </div>
             <div className='mt-5 mb-3'>
                 <input className='w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' type="submit" />

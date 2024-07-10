@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
 const [email, setEmail] = useState("");
 const [phoneNumber, setPhoneNumber] = useState("");
+const [showPassword, setShowPassword] = useState(false)
 const [password, setPassword] = useState("");
 
 const navigate = useNavigate();
@@ -84,13 +87,22 @@ return (
     </div>
     <div className="mb-4">
         <label htmlFor="password" className="block text-gray-900 dark:text-white font-bold mb-2">Password:</label>
+        <div className="relative">
         <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             placeholder="Enter Password..."
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-3 py-2 border rounded-md bg-gray-50 border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
         />
+        <button
+                type="button"
+                className="absolute right-3 top-[10px] flex text-white"
+                onClick={() => setShowPassword((prev) => !prev)}
+            >
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </button>
+        </div>
     </div>
     <div>
         <input
